@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Hub | Welcome</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-blue: #C8104D;
+            --secondary-blue: #C8104D;
+            --accent-gold: #d4af37;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        /*.top-bar {
+            background-color: var(--secondary-blue);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            margin-left: 15px;
+            font-size: 16px;
+        } */
+        
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+        
+        .logo-text h1 {
+            color: var(--secondary-blue);
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .logo-text p {
+            color: var(--primary-blue);
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+           /* color: var(--secondary-blue);*/
+            color: #1E1E1E;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-blue);
+        }
+        
+        /* Hero Section */
+        .hero {
+            /*background: linear-gradient(#c8104d7d), 
+                        url('');*/
+            background-image: url("w-0.jpg");
+            background-color: #C8104D;
+            background-color: #ffffff6b;
+            background-blend-mode: lighten;
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: #C8104D;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: #C8104D;
+
+        }
+        
+        /* Login Section */
+        .login-section {
+            padding: 60px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .login-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .login-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 350px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .login-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .login-card i {
+            font-size: 50px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+        
+        .login-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            /* color: var(--secondary-blue);*/
+            color: black;
+        }
+        
+        .login-card p {
+            margin-bottom: 25px;
+            color: var(--dark-gray);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-blue);
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--secondary-blue);
+            color: black;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-gold);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            color: var(--secondary-blue);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .about-image {
+            flex: 1;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Research Papers Section */
+        .papers-section {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .papers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .paper-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .paper-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .paper-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .paper-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .paper-card:hover .paper-image img {
+            transform: scale(1.1);
+        }
+        
+        .paper-content {
+            padding: 25px;
+        }
+        
+        .paper-content h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--secondary-blue);
+        }
+        
+        .paper-content .author {
+            color: var(--primary-blue);
+            font-weight: 500;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .paper-content .date {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .paper-content p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .read-more {
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary-blue);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-gold);
+        }
+        
+        .footer-column p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--accent-gold);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        
+        <div class="container main-header">
+            <div class="logo">
+                <img src="logo_amrita.jpg" alt="University Logo">
+                <div class="logo-text">
+                    <h1>Research Hub</h1>
+                    <p>Advancing Knowledge Through Innovation</p>
+                </div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Research</a></li>
+                    <li><a href="#">Publications</a></li>
+                    <li><a href="#">Facilities</a></li>
+                    <li><a href="#">Collaborations</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Welcome to Our Research Community</h2>
+            <p>Join us in pushing the boundaries of knowledge and creating solutions for a better tomorrow. Our research hub brings together brilliant minds from diverse disciplines to tackle the world's most pressing challenges.</p>
+        </div>
+    </section>
+    
+    <!-- Login Section -->
+    <section class="login-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Access Research Portal</h2>
+            </div>
+            
+            <div class="login-cards">
+                <div class="login-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Student Login</h3>
+                    <p>Access research materials, submit papers, and collaborate with peers and faculty members.</p>
+                    <a href="S_Login.html" class="btn">Login as Student</a>
+                </div>
+                
+                <div class="login-card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Faculty Login</h3>
+                    <p>Manage research projects, supervise students, and access advanced research tools.</p>
+                    <a href="#" class="btn">Login as Faculty</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Our Research Hub</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Driving Innovation Through Collaborative Research</h3>
+                    <p>Our Research Hub serves as the central platform for all research activities across the university. We foster interdisciplinary collaboration and provide state-of-the-art facilities to support groundbreaking research.</p>
+                    <p>With over 50 research centers and 200+ ongoing projects, we're committed to addressing global challenges in areas such as sustainable development, artificial intelligence, biomedical engineering, and climate change.</p>
+                    <p>Our researchers have published in top-tier journals and secured numerous patents, contributing significantly to both academic knowledge and practical applications.</p>
+                    <a href="#" class="btn">Learn More About Our Research</a>
+                </div>
+                
+                <div class="about-image">
+                    <img src="w-about.jpg" alt="Research Lab">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Research Papers Section -->
+    <section class="papers-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Research Papers</h2>
+            </div>
+            
+            <div class="papers-grid">
+                <div class="paper-card">
+                    <div class="paper-image">
+                        <img src="w-1.jpg" alt="AI Research">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Advancements in Explainable AI Systems</h3>
+                        <span class="author">Dr. Sarah Johnson et al.</span>
+                        <span class="date">Published: May 15, 2023</span>
+                        <p>This paper presents a novel framework for making complex AI decision-making processes transparent and interpretable for end-users.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="paper-card">
+                    <div class="paper-image">
+                        <img src="w-2.jpg" alt="Biomedical Research">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Nanotechnology in Targeted Drug Delivery</h3>
+                        <span class="author">Dr. Michael Chen et al.</span>
+                        <span class="date">Published: April 2, 2023</span>
+                        <p>Exploring the potential of nanoparticle-based systems to deliver therapeutic agents specifically to diseased cells while minimizing side effects.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="paper-card">
+                    <div class="paper-image">
+                        <img src="w-3.jpg" alt="Climate Research">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Sustainable Urban Development Models</h3>
+                        <span class="author">Dr. Emily Rodriguez et al.</span>
+                        <span class="date">Published: March 18, 2023</span>
+                        <p>A comprehensive analysis of urban planning strategies that balance economic growth with environmental sustainability in rapidly developing cities.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="btn">View All Publications</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Research Hub</h3>
+                    <p>Our Research Hub is dedicated to fostering innovation and discovery across all disciplines. We provide the infrastructure and support needed to turn ideas into impactful solutions.</p>
+                    <div class="social-links" style="margin-top: 20px;">
+                        <a href="#" style="color: var(--white); margin-right: 15px; font-size: 18px;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" style="color: var(--white); margin-right: 15px; font-size: 18px;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: var(--white); margin-right: 15px; font-size: 18px;"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" style="color: var(--white); margin-right: 15px; font-size: 18px;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Research Centers</a></li>
+                        <li><a href="#">Funding Opportunities</a></li>
+                        <li><a href="#">Research Publications</a></li>
+                        <li><a href="#">Collaborations</a></li>
+                        <li><a href="#">Research Facilities</a></li>
+                        <li><a href="#">Events & Conferences</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Research Hub, University Campus, City, Country - 123456</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+1 (123) 456-7890</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>research@university.edu</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Monday - Friday: 9:00 AM - 5:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Research Hub. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
