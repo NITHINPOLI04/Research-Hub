@@ -12,10 +12,10 @@ ResearchHub is a digital platform designed to foster collaboration among student
 - **Discussion Boards:** Engage in academic discussions and exchange ideas with the community.
 
 ## ⚡ Technologies Used
-- Frontend: React.js,Figma,HTML,CSS
-- Backend: Node.js, 
-- Database: MongoDB,FireBase
-- Version Control: Git, GitHub
+- **Frontend:** React.js,Figma,HTML,CSS
+- **Backend:** Node.js, 
+- **Database:** MongoDB,FireBase
+- **Version Control:** Git, GitHub
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.<br>
