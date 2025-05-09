@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResearchHub - Log In</title>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+
+  <!-- SweetAlert2 CSS and JS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #f8f8f8;
+      background-image: url('0.2.png');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: #D6156B;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .signup-box {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 30px;
+    }
+
+    .signup-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 14px;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    input:focus {
+      border-color: #D6156B;
+    }
+
+    .login-btn {
+      background: #D6156B;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-transform: uppercase;
+    }
+
+    .login-btn:hover {
+      background: #b31159;
+    }
+
+    .login-link {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .login-link a {
+      color: #D6156B;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    } 
+  </style>
+</head>
+<body>
+
+  <div class="logo">ResearchHub</div>
+  <div class="container">
+    <div class="signup-box">
+      <h1>LOG IN</h1>
+      
+      <form class="signup-form">
+        <input type="text" id="rollno" placeholder="Enter your roll no">
+        <input type="password" id="password" placeholder="Enter your password">
+        <button type="submit" class="login-btn">LOG IN</button>
+      </form>
+      
+      <p class="login-link">
+        Don't have an account? <a href="S_SignUp.html">SIGNUP</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Initialize Firebase -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCnxVN0nYY2h0lD_sxaG_hJnOosF067Ghk",
+      authDomain: "researchhub-e68ea.firebaseapp.com",
+      projectId: "researchhub-e68ea",
+      storageBucket: "researchhub-e68ea.appspot.com",
+      messagingSenderId: "365889770418",
+      appId: "1:365889770418:web:86b3e8967246208ce8caab"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    console.log("Firebase connected!");
+  </script>
+
+  <!-- Login Form Script -->
+  <script>
+    const loginForm = document.querySelector('.signup-form');
+
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const rollNo = document.getElementById('rollno').value.trim();
+      const password = document.getElementById('password').value;
+
+      const email = rollNo + "@researchhub.com"; // Using roll number as email part
+
+      try {
+        const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
+
+        // Show success popup
+        Swal.fire({
+          icon: 'success',
+          title: 'Login Successful!',
+          text: `Welcome, ${userCredential.user.displayName}!`,
+          confirmButtonColor: '#D6156B'
+        }).then(() => {
+          window.location.href = "HomeScreen.html";
+        });
+
+      } catch (error) {
+        console.error(error);
+
+        // Show error popup
+        Swal.fire({
+          icon: 'error',
+          title: 'Login Failed!',
+          text: error.message,
+          confirmButtonColor: '#D6156B'
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
