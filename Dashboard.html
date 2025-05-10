@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResearchConnect</title>
+  <link rel="stylesheet" href="Dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="rc-navbar">
+    <div class="rc-navbar-left">
+      <span class="rc-navbar-logo">ResearchConnect</span>
+    </div>
+    <ul class="rc-navbar-menu">
+      <li>Home</li>
+      <li>About</li>
+      <li>Groups</li>
+      <li>Projects</li>
+    </ul>
+    <div class="rc-profile-area">
+      <div class="rc-profile-avatar" id="rcProfileAvatar">RN</div>
+      <div class="rc-profile-dropdown" id="rcProfileDropdown">
+        <div class="rc-profile-name">Rishitha</div>
+        <a href="#">My Profile</a>
+        <a href="#">Settings</a>
+        <a href="#" id="rcSignOut">Sign Out</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Welcome Banner -->
+  <section class="rc-banner">
+    <img src="w-0.jpg" alt="Research Lab" class="rc-banner-img">
+    <div class="rc-banner-text">
+      <h1>Welcome  to Research Community<br><span>Rishitha</span></h1>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="rc-main-content">
+    <div class="rc-main-grid">
+      <!-- Activities -->
+      <section class="rc-activities">
+        <h2>You’r Activities</h2>
+        <div class="rc-activity-cards">
+          <div class="rc-activity-card">
+            <div class="rc-activity-title">
+              My Projects
+              <span class="rc-activity-badge" data-tooltip="Projects you're currently working on.">i</span>
+            </div>
+            <div class="rc-activity-count">0</div>
+            <a href="#" class="rc-activity-link">View more →</a>
+          </div>
+          <div class="rc-activity-card">
+            <div class="rc-activity-title">
+              Collaborations
+              <span class="rc-activity-badge" data-tooltip="Active research collaborations.">i</span>
+            </div>
+            <div class="rc-activity-count">0</div>
+            <a href="#" class="rc-activity-link">View more →</a>
+          </div>
+          <div class="rc-activity-card">
+            <div class="rc-activity-title">
+              Pending Requests
+              <span class="rc-activity-badge" data-tooltip="Requests waiting for your response.">i</span>
+            </div>
+            <div class="rc-activity-count">0</div>
+            <a href="#" class="rc-activity-link">View more →</a>
+          </div>
+          <div class="rc-activity-card">
+            <div class="rc-activity-title">
+              Publications
+              <span class="rc-activity-badge" data-tooltip="Your published research works.">i</span>
+            </div>
+            <div class="rc-activity-count">0</div>
+            <a href="#" class="rc-activity-link">View more →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Publishing Dates & Calendar -->
+      <section class="rc-publishing">
+        <h2>Publishing dates</h2>
+        <div id="rcCalendar"></div>
+        <div id="rcCalendarMsg" class="rc-calendar-msg"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Featured Groups -->
+  <section class="featured-groups">
+    <h2>Featured Groups</h2>
+    <div class="groups-container">
+      <div class="group-card">
+        <img src="1.1.jpg" alt="Genomics Research Group">
+        <div class="card-content">
+          <h3>Genomics Research Group</h3>
+          <p>Exploring the complexities of genetic information to unlock new medical solutions.</p>
+        </div>
+      </div>
+      <div class="group-card">
+        <img src="1.2.jpg" alt="Climate Change Analysts">
+        <div class="card-content">
+          <h3>Climate Change Analysts</h3>
+          <p>Dedicated to understanding global climate patterns and fostering sustainable practices.</p>
+        </div>
+      </div>
+      <div class="group-card">
+        <img src="1.3.jpg" alt="AI Innovators">
+        <div class="card-content">
+          <h3>AI Innovators</h3>
+          <p>Pioneering advancements in artificial Intelligence to revolutionize Industries.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-section">
+      <h3>About ResearchConnect</h3>
+      <p>ResearchConnect is a platform designed to bring together research and professionals from various fields to collaborate, share knowledge and drive innovation</p>
+    </div>
+    <div class="footer-section">
+      <h3>Contact Us</h3>
+      <div class="contact-info">
+        <p>Email: support@researchconnect.com</p>
+        <p>Phone: +91 1234567896</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCnxVN0nYY2h0lD_sxaG_hJnOosF067Ghk",
+      authDomain: "researchhub-e68ea.firebaseapp.com",
+      projectId: "Yresearchhub-e68ea",
+      storageBucket: "researchhub-e68ea.appspot.com",
+      messagingSenderId: "365889770418",
+      appId: "1:365889770418:web:86b3e8967246208ce8caab"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <!-- Main JS -->
+  <script src="Dashboard.js"></script>
+</body>
+</html>
