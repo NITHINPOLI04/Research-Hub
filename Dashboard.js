@@ -41,7 +41,6 @@ rcProfileAvatar.addEventListener('keydown', (e) => {
     rcProfileDropdown.querySelector('a')?.focus();
   }
 });
-// Keyboard navigation for dropdown
 rcProfileDropdown.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeDropdown();
 });
@@ -97,9 +96,9 @@ function rcRenderCalendar(year, month) {
   }
   html += '</tbody></table>';
   rcCalendar.innerHTML = html;
-  // Add click listeners for highlighted dates
+
   rcCalendar.querySelectorAll('td.rc-highlight').forEach(td => {
-    td.addEventListener('click', (e) => {
+    td.addEventListener('click', () => {
       const date = td.getAttribute('data-date');
       rcShowCalendarMsg(rcHighlightedDates[date], td);
     });
@@ -134,34 +133,44 @@ function rcShowCalendarMsg(msg, td) {
 const rcNow = new Date();
 rcRenderCalendar(rcNow.getFullYear(), rcNow.getMonth());
 
-// --- Firebase Auth & Sign Out ---
+// --- Firebase Auth & Sign Out with SweetAlert ---
 window.addEventListener("DOMContentLoaded", () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       const displayName = user.displayName || "User";
 
-      // Update banner and avatar initials
       document.querySelector(".rc-banner-text span").textContent = displayName;
       document.querySelector(".rc-profile-name").textContent = displayName;
       const initials = displayName.split(" ").map(n => n[0]).join("").toUpperCase();
       document.getElementById("rcProfileAvatar").textContent = initials;
 
-      // Attach sign out logic
       const signOutLink = document.getElementById("rcSignOut");
       if (signOutLink) {
         signOutLink.addEventListener("click", (e) => {
           e.preventDefault();
-          firebase.auth().signOut().then(() => {
-            window.location.href = "S_Login.html";
-          }).catch((error) => {
-            console.error("Sign-out failed:", error);
-            alert("Error signing out: " + error.message);
+
+          Swal.fire({
+            title: "Are you sure?",
+            text: "You will be logged out.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#D6156B",
+            cancelButtonColor: "#aaa",
+            confirmButtonText: "Yes, sign out"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              firebase.auth().signOut().then(() => {
+                window.location.href = "S_Login.html";
+              }).catch((error) => {
+                console.error("Sign-out error:", error);
+                alert("Error signing out: " + error.message);
+              });
+            }
           });
         });
       }
 
     } else {
-      // Redirect to login if not signed in
       window.location.href = "S_Login.html";
     }
   });
