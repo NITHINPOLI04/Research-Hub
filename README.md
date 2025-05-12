@@ -12,7 +12,7 @@ ResearchHub is a digital platform designed to foster collaboration among student
 - **Discussion Boards:** Engage in academic discussions and exchange ideas with the community.
 
 ## ⚡ Technologies Used
-- **Frontend:** React.js,Figma,HTML,CSS
+- **Frontend:** React.js, Figma, HTML, CSS
 - **Backend:** Node.js, 
 - **Database:** MongoDB,FireBase
 - **Version Control:** Git, GitHub
